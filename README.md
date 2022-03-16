@@ -1,4 +1,4 @@
-# WindowCaptureView
+# WindowViewCapture
 윈도우 캡쳐용 프로그램
 
 1. "Print Screen" 키를 누르면 화면이 파일로 저장됩니다.
