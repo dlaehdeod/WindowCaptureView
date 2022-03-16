@@ -1,0 +1,13 @@
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\bin\Release\WindowsViewCapture.exe.config
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\bin\Release\WindowsViewCapture.exe
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\bin\Release\WindowsViewCapture.pdb
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.csprojAssemblyReference.cache
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.Form_CustomSize.resources
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.Form_Option.resources
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.Form_Main.resources
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.Form_ScreenEffect.resources
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.Properties.Resources.resources
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.csproj.GenerateResource.cache
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.csproj.CoreCompileInputs.cache
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.exe
+C:\Users\dlaeh\source\repos\WindowsViewCapture\WindowsViewCapture\obj\Release\WindowsViewCapture.pdb
