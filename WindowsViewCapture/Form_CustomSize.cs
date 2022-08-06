@@ -6,10 +6,11 @@ namespace WindowsViewCapture
 {
     public partial class Form_CustomSize : Form
     {
+        private bool isCalled;
+        private bool customRange;
+
         private int offsetX;
         private int offsetY;
-
-        private bool customRange;
 
         public Form_CustomSize()
         {
@@ -61,6 +62,16 @@ namespace WindowsViewCapture
         private void Form_CustomSize_MouseUp(object sender, MouseEventArgs e)
         {
             timer_move.Stop();
+        }
+
+        private void Form_CustomSize_Activated(object sender, EventArgs e)
+        {
+            if (isCalled)
+            {
+                return;
+            }
+
+            isCalled = true;
         }
     }
 }

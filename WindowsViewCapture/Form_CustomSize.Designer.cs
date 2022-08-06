@@ -51,6 +51,7 @@ namespace WindowsViewCapture
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "화면 캡쳐 (Pause 키로 껏다 켰다 가능합니다)";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.Form_CustomSize_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_CustomSize_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_CustomSize_MouseDown);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_CustomSize_MouseUp);

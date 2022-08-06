@@ -40,6 +40,11 @@ namespace WindowsViewCapture
             hookId = SetWindowsHookEx(WH_KEYBOARD_LL, lowLevelKeyboardProc, hInstance, 0);
         }
 
+        public void SetHWndCustomSize (IntPtr hWnd)
+        {
+            processManager.SetCustomHWnd(hWnd);
+        }
+
         public void UnHook()
         {
             UnhookWindowsHookEx(hookId);
@@ -63,35 +68,33 @@ namespace WindowsViewCapture
                 else if (wParam == (IntPtr)WM_KEYDOWN)
                 {
                     Keys key = (Keys)Marshal.ReadInt32(lParam);
+                    Screen currentScreen;
 
                     switch (key)
                     {
                         case Keys.PrintScreen:
-
                             if (Form_Main.customRange)
                             {
-                                int width = Form_Main.form_customSize.Width;
-                                int height = Form_Main.form_customSize.Height;
-                                int x = Form_Main.form_customSize.Location.X;
-                                int y = Form_Main.form_customSize.Location.Y;
-                                
+                                Rect rectInfo = processManager.GetCustomSizeRectInfo();
+
                                 Form_Main.form_customSize.Visible = false;
-                                Form_Main.ScreenShot(width, height, x, y);
+                                Form_Main.ScreenShot(rectInfo.right - rectInfo.left, rectInfo.bottom - rectInfo.top, rectInfo.left, rectInfo.top);
                                 Form_Main.form_customSize.Visible = true;
                             }
                             else if (Form_Main.containTaskbar)
                             {
-                                Form_Main.ScreenShot(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, 0, 0);
+                                currentScreen = GetCurrentScreen();
+                                Form_Main.ScreenShot(currentScreen.Bounds.Width, currentScreen.Bounds.Height, 0, 0);
                             }
                             else
                             {
-                                Form_Main.ScreenShot(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height, 0, 0);
+                                currentScreen = GetCurrentScreen();
+                                Form_Main.ScreenShot(currentScreen.WorkingArea.Width, currentScreen.WorkingArea.Height, 0, 0);
                             }
 
                             return (IntPtr)1;
 
                         case Keys.Pause:
-
                             Form_Main.form_customSize.ToggleView();
                             break;
                     }
@@ -99,6 +102,28 @@ namespace WindowsViewCapture
             }
 
             return CallNextHookEx(hookId, code, (int)wParam, lParam);
+        }
+
+        private static Screen GetCurrentScreen ()
+        {
+            Screen[] screens = Screen.AllScreens;
+            int length = screens.Length;
+            int area;
+
+            for (area = 0; area < length; ++area)
+            {
+                if (screens[area].WorkingArea.Contains(Form_Main.instance.Location))
+                {
+                    break;
+                }
+            }
+
+            if (length <= area) //화면을 벗어난 경우 (가장 왼쪽/가장 오른쪽)
+            {
+                area = 0; //첫번째 스크린 기준으로 해줍니다.
+            }
+
+            return screens[area];
         }
     }
 }

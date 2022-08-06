@@ -171,7 +171,7 @@ namespace WindowsViewCapture
         private string GetHashString(string target)
         {
             byte[] hashByte = Encoding.UTF8.GetBytes(target);
-            hashByte = new MD5CryptoServiceProvider().ComputeHash(hashByte);
+            hashByte = new MD5CryptoServiceProvider().ComputeHash(hashByte); //해시 암호 걸어보기~
 
             StringBuilder stringBuilder = new StringBuilder(hashByte.Length);
             for (int i = 0; i < hashByte.Length - 1; i++)
@@ -202,6 +202,7 @@ namespace WindowsViewCapture
             form_option = new Form_Option();
 
             hookManager.SetHook();
+            hookManager.SetHWndCustomSize(form_customSize.Handle);
         }
 
         private void button_option_Click(object sender, EventArgs e)
